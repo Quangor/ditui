@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>题目</title>
+	<meta charset="uft-8" />
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<!-- build:css(.) /static/css/knowledge.css -->
+	<link href="/static/css/knowledge/dev/base.css" rel="stylesheet"/>
+	<link href="/static/css/knowledge/dev/common.css" rel="stylesheet"/> 
+	<!-- endbuild --> 
+</head>
+<body>
+	<ul class="knowledgeSearchListContainer backgroundWhite">
+		{% for knowledge in knowledges %}
+		<li class='borderBtm'><a href="{{ knowledges.id }}"> 
+			<p class="knowledgeTitle colorDark">
+				{% if knowledge.isTop %}
+					<span class='colorRed'>置顶</span>
+				{% endif %}
+				{% if knowledge.isNew %}
+					<span class='colorRed'>New</span>
+				{% endif %}
+				{{ knowledge.title }}
+			</p>
+			<p class="knowledgeSendTime colorLight">{{ knowledge.time }}</p>	
+		 </a></li>
+		{% endfor %}
+	</ul>
+</body>
+</html>

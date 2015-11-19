@@ -1,0 +1,68 @@
+@CHARSET "UTF-8";
+
+
+
+a {
+  text-decoration: none;
+  cursor: pointer; }
+
+a:hover {
+  text-decoration: none; }
+
+a:hover, *:hover {
+  outline: none; }
+
+ol, ul, li {
+  list-style: none; }
+
+body, ul, p, figure,form {
+  padding: 0px;
+  margin: 0px; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.hide {
+  display: none !important; }
+
+.block {
+  display: block; }
+
+.inlineBlock {
+  display: inline-block; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal; }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block; }
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */ }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+.hide{
+	display:none !important;
+}

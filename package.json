@@ -1,0 +1,29 @@
+{
+  "name": "jianrenGuanWang",
+  "version": "0.0.1",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-md5": "^0.1.1",
+    "gulp-minify-css": "^1.2.0",
+    "gulp-minify-html": "^1.0.4",
+    "gulp-rev": "^5.1.0",
+    "gulp-uglify": "^1.2.0",
+    "gulp-usemin": "^0.3.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/some-username-here/ngTest.git"
+  },
+  "author": "some-username-here",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/some-username-here/ngTest/issues"
+  },
+  "homepage": "https://github.com/some-username-here/ngTest",
+  "engines": {
+    "node": "=> 0.12.x"
+  }
+}

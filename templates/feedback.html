@@ -1,0 +1,69 @@
+<html>
+<head>
+	<title>题目</title>
+	<meta charset="uft-8" />
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<!-- build:css(.) /static/css/knowledge.css -->
+	<link href="/static/css/knowledge/dev/base.css" rel="stylesheet"/>
+	<link href="/static/css/knowledge/dev/common.css" rel="stylesheet"/> 
+	<!-- endbuild --> 
+	
+	<script>
+		window.onerror = function(sMsg,sUrl,sLine){
+			alert(sMsg);
+			alert(sUrl);
+			alert(sLine);
+		};
+	</script>
+</head>
+<body class="backgroundNormal">
+	<div>
+		<form class="feedbackForm backgroundWhite borderBtm" id="feedbackForm">
+			<textarea name="feedbackText" required placeholder="请描述您的意见" id="feedbackText" class="backgroundNormal"></textarea>
+			<input type="hidden" name="feedbackTextImg1" id="feedbackTextImg1">
+			<input type="hidden" name="feedbackTextImg2" id="feedbackTextImg2">
+			<input type="hidden" name="feedbackTextImg3" id="feedbackTextImg3">
+		</form>
+	</div>
+	<ul class=" feedbackImgContainer backgroundWhite borderBtm" id="feedbackImgContainer">
+		<li class="backgroundNormal">
+			<label for="img1">
+				<img id="image1" src="{{STATIC_URL}}images/blankImage.png">
+			</label>
+			<input type="file" id="img1" accept="image/gif, image/jpeg,image/jpg,image/png,">
+		</li>
+		<li  class="backgroundNormal">
+			<label for="img2">
+				<img id="image1" src="{{STATIC_URL}}images/blankImage.png">
+			</label>
+			<input type="file" id="img2">
+		</li>
+		<li  class="backgroundNormal">
+			<label for="img3">
+				<img id="image1" src="{{STATIC_URL}}images/blankImage.png">
+			</label>
+			<input type="file" id="img3">
+		</li>
+	</ul>
+	
+	<nav class="feedbackFormBtnWrapper"><a id="feedbackFormBtn" class="feedbackFormBtn">提交</a></nav>
+	 <!-- build:js(.) /static/js/lib.js -->	
+	<script src="/static/js/lib/underscoreTemplate.js"></script>
+	<script src="/static/js/lib/Validator.js"></script>
+	<script src="/static/js/lib/Ajax.js"></script>
+	<script src="/static/js/lib/BaseModel.js"></script>
+	<script src="/static/js/lib/Form.js"></script>
+	<!-- endbuild --> 
+	
+	<!-- build:js(.) /static/js/localResizeImage.js -->	
+	<script src="/static/js/lib/lrz.bundle.js"></script>
+	<!-- endbuild --> 
+	
+	<!-- build:js(.) /static/js/feedback.js -->	
+	<script  src="/static/js/Feedback/Feedback.js"></script>
+	<!-- endbuild --> 
+</body>
+</html>

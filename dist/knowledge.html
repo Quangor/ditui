@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>题目</title>
+	<meta charset="uft-8" />
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="/static/css/knowledge.css"/> 
+</head>
+<body class="backgroundNormal">
+	<header class="searchHeader backgroundWhite">
+		<form action="" method="POST" onsubmit="return false;">
+			<div class="searchInputWrapper borderBtm">
+				<label for="knowledgeSerach"></label>
+				<input onClick="this.setSelectionRange(0, this.value.length)"  type="search" id="knowledgeSerach" placeholder="搜索"/>
+			</div>
+			<a id="cancelSearchBtn" class="hide colorDark">取消</a>
+		</form>
+	</header>
+	<ul class="knowledgeCategoryContainer backgroundWhite" id="cateGorysContainer">
+		{% for titleCategory in categoryLists %}
+			<li class="borderBtm">
+				<a class="colorLight" href="{{ titleCategory.id }}"> {{ titleCategory.category }} </a>
+				<i class="arrowIcon arrowRight"></i>
+			</li>
+		{% endfor %}
+	</ul>
+	<ul class="knowledgeSearchListContainer backgroundWhite" id="knowledgeSearchListContainer">
+		
+	</ul>
+	<script id="knowledgeTemplate" type="text/template">
+		<% if(knowledges.length==0) {%>
+			<p>没有相关结果</p>
+		<% } %>
+		<% _.each(knowledges , function(knowledge){%>
+			<li class='borderBtm'><a href=<%= knowledge.id %> >
+				<p class="knowledgeTitle colorDark"><%= knowledge.title %></p>
+				<p class="knowledgeSendTime colorLight"><%= knowledge.time %></p>
+			</a></li>
+		<% }) %>
+	</script>
+	 <script src="/static/js/lib.js"></script> 
+	
+	<script src="/static/js/knowledge.js"></script> 
+</body>
+</html>

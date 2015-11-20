@@ -11,21 +11,31 @@ var imagemin = require('gulp-imagemin');
 var clean = require('gulp-clean');
 var md5 = require("gulp-md5");
 
-
-gulp.task('usemin', function () {
-  return gulp.src('./templates/*/*.html')
-      .pipe(usemin({
-      	css : [rev()],
-        js: [uglify(), rev()],
-        inlinecss: [ cssmin(), 'concat' ],
-      }))
-      .pipe(gulp.dest('./dist'));
+gulp.task('usemin', function() {
+  gulp.src('./templates/*.html')
+    .pipe(usemin({
+      cssmin: cssmin(),
+      jsmin: uglify(),
+    }))
+    .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('css', function () {
   return gulp.src('./dist/static/css/*.css')
       .pipe(cssmin())
       .pipe(gulp.dest('./dist/static/css/'));
+});
+
+gulp.task('js', function () {
+  return gulp.src('./dist/static/js/*.js')
+      .pipe(uglify())
+      .pipe(gulp.dest('./dist/static/js/'));
+});
+
+gulp.task('md5', function () {
+  return gulp.src(['./dist/static/js/*.js','./dist/static/css/*.css'])
+      .pipe(md5())
+      .pipe(gulp.dest('./dist/static/'));
 });
 
 gulp.task('img', function () {

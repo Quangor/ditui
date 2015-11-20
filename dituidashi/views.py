@@ -51,3 +51,8 @@ def knowledgeDetail(request , knowledgeId, template_name="knowledge/detail.html"
                                                             "status" : "200",
                                                             "knowledge" : knowledgesDetail,
                                                             "errMsg" : "调用成功"}))
+@csrf_exempt
+def feedbackSubmit(request):
+    return HttpResponse(json.dumps({ "status" : "200",
+                                    "isOk":"ok",
+                                     "errMsg" : "调用成功"}), content_type="application/json")

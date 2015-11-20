@@ -26,6 +26,8 @@ urlpatterns = patterns('',
 
 urlpatterns += patterns('dituidashi.views',
     url(r'^test$', TemplateView.as_view(template_name='test.html')),
+    url(r'^feedback$', TemplateView.as_view(template_name='feedback/index.html')),
+     url(r'^feedbackSubmit$', 'feedbackSubmit', name="dituidashi_feedbackSubmit"),
     url(r'^knowledgeCategory$', 'knowledge', name="dituidashi_knowledge"),
     url(r'^knowledgeSerach$', 'knowledges_earch', name="dituidashi_knowledges_earch"),
     url(r'^knowledge/(?P<cateGoryId>\d+)$$', 'getKnowledgeById', name="dituidashi_getKnowledgeById"),

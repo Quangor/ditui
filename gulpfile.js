@@ -13,7 +13,7 @@ var md5 = require("gulp-md5");
 
 
 gulp.task('usemin', function () {
-  return gulp.src('./templates/knowledge/*.html')
+  return gulp.src('./templates/*/*.html')
       .pipe(usemin({
       	css : [rev()],
         js: [uglify(), rev()],

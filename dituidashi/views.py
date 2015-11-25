@@ -22,7 +22,7 @@ import base64
 from django.core.files.base import ContentFile
 from dituidashi.testDatas import KNOWLEDGE , CATEGORY ,getKnowledge , getKnowledgeDetail
 
-def knowledge(request, template_name="knowledge/index.html"):
+def knowledge(request, cateGoryId, template_name="knowledge.html"):
     categoryLists = CATEGORY
     return render_to_response(template_name, RequestContext(request, {
                                                             "status" : "200",

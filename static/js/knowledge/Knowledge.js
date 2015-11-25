@@ -34,12 +34,12 @@
 			time : {
 				type : "date",
 				defaultValue : "",
-				mapping : "time"
+				mapping : "updatedTime"
 			},
 			author : {
 				type : "string",
 				defaultValie : "",
-				mapping : "author"
+				mapping : "publisher"
 			}	
 		};
 		
@@ -73,6 +73,7 @@
 		this.initSearchInputLabelStyle = function(){
 			var left = (inputSearchWrapper.clientWidth - 70)/2;
 			inputSearchInputLabel.style.left = left + 'px';
+			quan.show(inputSearchInputLabel);
 		};
 		
 		this.hideKnowledgeTitleLists = function(){

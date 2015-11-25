@@ -12,7 +12,7 @@
 	<header class="searchHeader backgroundWhite">
 		<form action="" method="POST" onsubmit="return false;">
 			<div class="searchInputWrapper borderBtm">
-				<label for="knowledgeSerach"></label>
+				<label for="knowledgeSerach hide"></label>
 				<input onClick="this.setSelectionRange(0, this.value.length)"  type="search" id="knowledgeSerach" placeholder="搜索"/>
 			</div>
 			<a id="cancelSearchBtn" class="hide colorDark">取消</a>
@@ -20,10 +20,26 @@
 	</header>
 	<ul class="knowledgeCategoryContainer backgroundWhite" id="cateGorysContainer">
 		{% for titleCategory in categoryLists %}
+			{% if(titleCategory.hasChild) %}
 			<li class="borderBtm">
 				<a class="colorLight" href="{{ titleCategory.id }}"> {{ titleCategory.category }} </a>
 				<i class="arrowIcon arrowRight"></i>
 			</li>
+			{% endif %}
+			{% if(titleCategory.isLeaf) %}
+			<li class='borderBtm'><a href="{{ titleCategory.id }}"> 
+				<p class="knowledgeTitle colorDark">
+					{% if titleCategory.isTop %}
+						<span class='colorRed'>置顶</span>
+					{% endif %}
+					{% if titleCategory.isHot %}
+						<span class='colorRed'>New</span>
+					{% endif %}
+					{{ titleCategory.title }}
+				</p>
+				<p class="knowledgeSendTime colorLight">{{ knowledge.time }}</p>	
+			 </a></li>
+			{% endif %}
 		{% endfor %}
 	</ul>
 	<ul class="knowledgeSearchListContainer backgroundWhite" id="knowledgeSearchListContainer">

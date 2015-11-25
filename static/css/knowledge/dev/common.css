@@ -6,7 +6,7 @@
 }
 .arrowIcon{
 	position:absolute;
-	background-image:url(../../../images/arrow.png);
+	background-image:url(../images/arrow.png);
 	background-size:100% 100%;
 }
 .colorLight{
@@ -42,7 +42,7 @@
 		.searchHeader form .searchInputWrapper label{
 		    position: absolute;
 		    top: 14px;
-		    background: white;
+		    background-image:url(../images/arrow.png);
 		    width: 14px;
 		    height: 14px;
 		    display: block;

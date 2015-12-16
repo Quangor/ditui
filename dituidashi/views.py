@@ -44,7 +44,7 @@ def knowledges_earch(request):
                                      "knowledges" : knowledges,
                                      "errMsg" : "调用成功"}), content_type="application/json")
     
-def knowledgeDetail(request , knowledgeId, template_name="knowledge/detail.html"):
+def knowledgeDetail(request , knowledgeId, template_name="knowledge_detail.html"):
     knowledgeId = int(knowledgeId) 
     knowledgesDetail = getKnowledgeDetail(knowledgeId)
     return render_to_response(template_name, RequestContext(request, {

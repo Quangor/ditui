@@ -6,16 +6,29 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<!-- build:css(.) /static/css/knowledge.css -->
-	<link href="/static/css/knowledge/dev/base.css" rel="stylesheet"/>
-	<link href="/static/css/knowledge/dev/common.css" rel="stylesheet"/> 
-	<!-- endbuild --> 
+	<link rel="stylesheet" href="/static/css/knowledge.css"/> 
+	<style>
+		#author{
+			border:0px;
+		}
+		.knowledgeDetail{
+			background:white;
+		}
+		body{
+			background:#f2f2f2;
+		}
+	</style>
 </head>
 <body>
 	<section class="knowledgeDetail">
-		<h3>{{knowledge.title}}</h3>
-		<aside><span>{{knowledge.time}}</span><span>{{knowledge.author}}</span></aside>
-		<p class="knowledgeContent">{{knowledge.content}}</p>	
+		<h3>{{title}}</h3>
+		<aside>
+			{% if createTime %}
+			<span>{{createTime}}</span>
+			{% endif %}
+			<span>{{publisher}}</span>
+		</aside>
+		<p class="knowledgeContent">{{content}}</p>	
 	</section>
 </body>
 </html>

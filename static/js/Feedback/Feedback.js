@@ -43,6 +43,9 @@
 				document.querySelector("#feedbackTextImg3").value = val;
 			};
 			
+			this.setMethod = function(method){
+				this.method = method;
+			};
 			
 			this.method = "feedbackSubmit";
 		};
@@ -82,6 +85,10 @@
 		var me = this;
 		this.fileInputContainer = new FileInputContainer();
 		
+		this.getFormAction = function(){
+			return document.querySelector("#feedbackFor").action;
+		};
+		
 		this.renderLoadResult = function(index,src){
 			this.fileInputContainer.labelImages[index].src = src;
 		};
@@ -105,7 +112,9 @@
 	var Feedback = function(){
 		var me = this;
 		var viewController = new ViewController();
+		var formAction = viewController.getFormAction();
 		var form = new Form();
+		form.setMethod(formAction);
 		this.resize = function(inputfile,event){
 			var index = inputfile.index;
 			viewController.showLoading(index);

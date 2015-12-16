@@ -1,0 +1,83 @@
+<html>
+<head>
+	<title>题目</title>
+	<meta charset="uft-8" />
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="/static/css/knowledge.css"/> 
+	<style>
+		#author{
+			border:0px;
+		}
+		.knowledgeDetail{
+			background:white;
+		}
+		body{
+			background:#f2f2f2;
+		}
+	</style>
+</head>
+<body>
+	<section class="knowledgeDetail">
+		<h3 id="title">{{title}}</h3>
+		<aside>
+			{% if  time %}
+				<span id="publishTime">{{time}}</span>
+			{% endif %}
+			<span id="author">{{author}}</span>
+		</aside>
+		<p class="knowledgeContent" id="content">{{content}}</p>	
+	</section>
+	<script>
+		var Location = function(){
+			this.location = window.location;
+			
+			this.parameters = {};
+			
+			this.getParameter = function(parameterStr){
+				this.parseParameter();
+				if(this.parameters){
+					return this.parameters[parameterStr];
+				}
+				return "";
+			};
+			
+			this.parseParameter = function(){
+				var patameterSTrings = this.location.search.split("?")[1];
+				if(patameterSTrings){
+					var array_parameterStr = patameterSTrings.split("&");
+					for(var i =0,len = array_parameterStr.length;i<len;i++){
+						var keyValue = array_parameterStr[i].split("=");
+						var paramterKey = keyValue[0];
+						var parameterValue = keyValue[1];
+						this.parameters[paramterKey] = decodeURIComponent(parameterValue);
+					}
+				}
+			};
+		};
+		var Notice = function(){
+			var locate = new Location();
+			locate.parseParameter();
+			var parameters = locate.parameters;
+			
+			this.render = function(){
+				this.renderParameter("title","title").renderParameter("time","publishTime").renderParameter("author","author").renderParameter("content","content");
+			};
+			
+			this.renderParameter = function(parameter,id){
+				if(parameters){
+					var par = parameters[parameter];
+					if(par){
+						document.querySelector("#"+id).innerHTML = par;
+					}
+				}
+				return this;
+			};
+		};
+		var notice = new Notice();
+		notice.render();
+	</script>
+</body>
+</html>

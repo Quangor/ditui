@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title>明细</title>
+	<meta charset="utf-8" />
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="/static/css/personal.css"/> 
+</head>
+<body>
+	<section class="billingInformationContainer">
+		<h4><time>11月3日</time></h4>
+		<ul>
+			{% for billingInformationDetail in billingInformationDetails %}
+			<li>
+				<div class="billineInformationIconWrapper"><div>
+					{% if billingInformationDetail.type =="zhangbei" %}
+					<img src="/static/images/icoZhangbei@2x.png">
+					{%endif%}
+					{% if billingInformationDetail.type =="wePay" %}
+					<img src="/static/images/icoWepay@2x.png">
+					{%endif%}
+					{% if billingInformationDetail.type =="aliPay" %}
+					<img src="/static/images/icoAlipay@2x.png">
+					{%endif%}
+					{% if billingInformationDetail.type =="uniPay" %}
+					<img src="/static/images/icoUnipay@2x.png">
+					{%endif%}
+					{% if billingInformationDetail.type =="yituozhan" %}
+					<img src="/static/images/icoMyworkBusiness@2x.png">
+					{%endif%}
+					{% if billingInformationDetail.type =="beitiuozhan" %}
+					<img src="/static/images/icomyworkbusiness2@2x.png">
+					{%endif%}
+					{% if billingInformationDetail.type =="activity" %}
+					<img src="/static/images/icoactivity0@2x.png">
+					{%endif%}
+				</div></div>
+				<p>{{billingInformationDetail.content}}</p>
+			</li>
+			{% endfor %}
+		</ul>
+	</section>
+</body>
+</html>

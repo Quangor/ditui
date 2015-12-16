@@ -26,9 +26,13 @@ urlpatterns = patterns('',
 
 urlpatterns += patterns('dituidashi.views',
     url(r'^test$', TemplateView.as_view(template_name='test.html')),
-    url(r'^feedback$', TemplateView.as_view(template_name='feedback/index.html')),
-     url(r'^feedbackSubmit$', 'feedbackSubmit', name="dituidashi_feedbackSubmit"),
+    url(r'^notification$', TemplateView.as_view(template_name='notification.html')),
+    url(r'^billingInformation$', TemplateView.as_view(template_name='billingInformationType.html')),
+   url(r'^billingInformationDetail$', TemplateView.as_view(template_name='billingInformationDetail.html')),
+    url(r'^feedback$', TemplateView.as_view(template_name='feedback.html')),
+    url(r'^feedbackSubmit$', 'feedbackSubmit', name="dituidashi_feedbackSubmit"),
     url(r'^knowledgeCategory/(?P<cateGoryId>\d+)$', 'knowledge', name="dituidashi_knowledge"),
     url(r'^knowledgeSerach$', 'knowledges_earch', name="dituidashi_knowledges_earch"),
     url(r'^knowledge/(?P<cateGoryId>\d+)$', 'getKnowledgeById', name="dituidashi_getKnowledgeById"),
-    url(r'^knowledgeDetail/(?P<knowledgeId>\d+)$', 'knowledgeDetail', name="dituidashi_getKnowledgeDetail"),)
+    url(r'^knowledgeDetail/(?P<knowledgeId>\d+)$', 'knowledgeDetail', name="dituidashi_getKnowledgeDetail"),
+)

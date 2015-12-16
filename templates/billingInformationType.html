@@ -1,0 +1,70 @@
+ <html>
+<head>
+	<title>明细</title>
+	<meta charset="utf-8" />
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<!-- build:css(.) /static/css/personal.css -->
+	<link href="/static/css/knowledge/dev/base.css" rel="stylesheet"/>
+	<link href="/static/css/personal/personal.css"  rel="stylesheet">
+	<!-- endbuild --> 
+</head>
+<body>
+	<section class="billingInformationContainer">
+		<h4>进件申请</h4>
+		<ul>
+			<li>
+				<div class="billineInformationIconWrapper"><div><img src="/static/images/icoZhangbei@2x.png"></div></div>
+				<p>掌贝申请</p>
+				<div>{{zhangbeiCount}}件</div>
+			</li>
+			<li>
+				<div class="billineInformationIconWrapper"><div><img src="/static/images/icoWepay@2x.png"></div></div>
+				<p>微信支付</p>
+				<div>{{wechatCount}}件</div>
+			</li>
+			<li>
+				<div class="billineInformationIconWrapper"><div><img src="/static/images/icoAlipay@2x.png"></div></div>
+				<p>支付宝支付</p>
+				<div>{{aliCount}}100件</div>
+			</li>
+			<li>
+				<div class="billineInformationIconWrapper"><div><img src="/static/images/icoUnipay@2x.png"></div></div>
+				<p>银联刷卡支付</p>
+				<div>{{unionCount}}件</div>
+			</li>
+		</ul>
+	</section>
+
+	<section class="billingInformationContainer">
+		<h4>商机拓展</h4>
+		<ul>
+			<li>
+				<div class="billineInformationIconWrapper"><div><img src="/static/images/icoMyworkBusiness@2x.png"></div></div>
+				<p>已拓展商机</p>
+				<div>{{businessCount}}件</div>
+			</li>
+			<li>
+				<div class="billineInformationIconWrapper"><div><img src="/static/images/icomyworkbusiness2@2x.png"></div></div>
+				<p>未拓展商机</p>
+				<div>{{businessCount}}件</div>
+			</li>
+		</ul>
+	</section>
+
+	<section class="billingInformationContainer">
+		<h4>活动业绩</h4>
+		<ul class="activityList">
+			{% for activity in activities %}
+				<li>
+					<div class="billineInformationIconWrapper"><div><img src="/static/images/icoactivity{{forloop.counter%4}}@2x.png"></div></div>
+					<p>{{activity.name}}</p>
+					<div>{{activity.count}}件</div>
+				</li>
+			{% endfor %}
+		</ul>
+	</section>
+</body>
+</html>
